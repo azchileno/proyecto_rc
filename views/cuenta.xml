@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+        <record model="ir.ui.view" id="proyecto_rc.tree_cuenta_list">  
+        <field name="name">lista de cuentas</field>
+        <field name="model">proyecto_rc.cuenta</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="id"/>
+              <field name="titulo"/>
+              <field name="tipo_cuenta"/>
+           </tree>
+        </field>
+        </record>
+        
+        <record model="ir.ui.view" id="proyecto_rc.cuenta_form">
+                <field name="name">proyecto_rc</field>
+                <field name="model">proyecto_rc.cuenta</field>
+                <field name="arch" type="xml">
+                    <form string="cuentas">
+                        <sheet>
+                            <group col="4">
+                            <separator string="Registro de cuentas" colspan="4"/>
+                                <field name="id"/>
+                                <field name="titulo"/>
+                                <field name="tipo_cuenta"/>
+                                
+                            </group>
+                            <group>
+                            <separator string="Detalle libro" colspan="4"/>
+                            <field name="detalle_libro_ids" nolabel="1">
+                            <tree string="Asiento" editable="false">
+                                <field name="fecha"/>
+                                <field name="descripcion"/>
+                                <field name="producto_id"/>
+                                <field name="cantidad_debe"/>
+                                <field name="cantidad_haber"/>
+                                <field name="total_debe"/>
+                                <field name="total_haber"/>
+                            </tree>
+                            </field>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+    
+    
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="proyecto_rc.cuenta_action_window">
+        <field name="name">Registro de cuenta</field>    <!-- agrega nombre a la  pantalla de afuera -->
+        <field name="res_model">proyecto_rc.cuenta</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- server action to the one above -->
+        
+        <record model="ir.actions.server" id="proyecto_rc.cuenta_action_server">
+        <field name="name"> cuenta server</field>
+        <field name="model_id" ref="model_proyecto_rc_cuenta"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+            "type": "ir.actions.act_window",
+            "view_mode": "tree,form",
+            "res_model": self._name,
+            }
+        </field>
+        </record>
+        
+        <menuitem name="Cuentas"
+        id="proyecto_rc_cuenta" 
+        parent="menu_proyecto_rc" 
+        action="proyecto_rc.cuenta_action_window"/>
+  
+	</data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+        <record model="ir.ui.view" id="proyecto_rc.tree_trabajador_list">  
+        <field name="name">lista de trabajadores</field>
+        <field name="model">proyecto_rc.trabajador</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="id"/>
+            <field name="nombre"/>
+            <field name="rut"/>
+            <field name="telefono"/>
+            <field name="direccion"/>
+            <field name="cargo"/>
+
+            </tree>
+        </field>
+        </record>
+        
+        <record model="ir.ui.view" id="proyecto_rc.trabajador_form">
+                <field name="name">proyecto_rc</field>
+                <field name="model">proyecto_rc.trabajador</field>
+                <field name="arch" type="xml">
+                    <form string="trabajadors">
+                        <sheet>
+                            <group col="4">
+                            <separator string="Registro de trabajadors" colspan="4"/>
+                                <field name="id"/>
+                                <field name="nombre"/>
+                                <field name="rut"/>
+                                <field name="sexo"/>
+                                <field name="direccion"/>
+                                <field name="telefono"/>
+                                <field name="cargo"/>
+                            </group>
+                            <group>
+                             <separator string="Factura compra" colspan="4"/>
+                             <field name="factura_compra_ids" nolabel="1"/>
+                             </group>
+                             <group>
+                             <separator string="Factura venta" colspan="4"/>
+                             <field name="factura_venta_ids" nolabel="1"/>
+                            </group>
+                            
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+    
+    
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="proyecto_rc.trabajador_action_window">
+        <field name="name">Registro de trabajador</field>    <!-- agrega nombre a la  pantalla de afuera -->
+        <field name="res_model">proyecto_rc.trabajador</field>
+        <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- server action to the one above -->
+        
+        <record model="ir.actions.server" id="proyecto_rc.trabajador_action_server">
+        <field name="name"> trabajador server</field>
+        <field name="model_id" ref="model_proyecto_rc_trabajador"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+            "type": "ir.actions.act_window",
+            "view_mode": "tree,form",
+            "res_model": self._name,
+            }
+        </field>
+        </record>
+        
+        <menuitem name="Trabajadores"
+        id="proyecto_rc_trabajador" 
+        parent="menu_proyecto_rc" 
+        action="proyecto_rc.trabajador_action_window"/>
+  
+	</data>
+</odoo>

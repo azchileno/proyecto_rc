@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_proyecto_rc_libro,proyecto_rc.libro,model_proyecto_rc_libro,,1,1,1,1
+access_proyecto_rc_detalle_libro_rc,proyecto_rc.detalle_libro,model_proyecto_rc_detalle_libro,,1,1,1,1
+access_proyecto_rc_producto,proyecto_rc.producto,model_proyecto_rc_producto,,1,1,1,1
+access_proyecto_rc_cuenta,proyecto_rc.cuenta,model_proyecto_rc_cuenta,,1,1,1,1
+access_proyecto_rc_movimiento,proyecto_rc.movimiento,model_proyecto_rc_movimiento,,1,1,1,1
+access_proyecto_rc_empresa,proyecto_rc.empresa,model_proyecto_rc_empresa,,1,1,1,1
+access_proyecto_rc_trabajador,proyecto_rc.trabajador,model_proyecto_rc_trabajador,,1,1,1,1
+access_proyecto_rc_factura_compra,proyecto_rc.factura_compra,model_proyecto_rc_factura_compra,,1,1,1,1
+access_proyecto_rc_factura_venta,proyecto_rc.factura_venta,model_proyecto_rc_factura_venta,,1,1,1,1

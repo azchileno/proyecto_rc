@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>  
+      <menuitem name="Repuestos Calderon" id="proyecto_rc_menu_root"/>
+
+    <!-- menu categories -->
+    
+    <menuitem name="Menu proyecto_rc" id="menu_proyecto_rc" parent="proyecto_rc_menu_root"/>
+   
+  </data>
+</odoo>
